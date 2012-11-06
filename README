@@ -1,7 +1,7 @@
 Take this as an example on how to make conky display nicer ring-bars
 using lua and cairo
 
-Screenshot: https://www.dropbox.com/s/40qfhe5g2tfkuii/conky-rings.png
+
 
 Currently provides information about:
 
