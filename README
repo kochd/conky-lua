@@ -1,0 +1,13 @@
+Currently provides information about:
+
+battery: -Percentage
+	 -Estimated time charging
+	 -Estimated time decharging
+
+cpu:	 -Usage
+
+ram:	 -Usage
+
+diskspace: -by default there is '/' and '/home' space shown
+
+wifi:	   - Up- and Downspeed
