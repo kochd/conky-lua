@@ -1,10 +1,29 @@
+Take this as an example on how to make conky display nicer ring-bars
+using lua and cairo
+
+
 Currently provides information about:
+
+date:	  -awesome analog clock
+	  -rings showing s,m,h,d and m
+	  -Ofcourse some text output
+	  
+wheather: -Temerpature outside
 
 battery: -Percentage
 	 -Estimated time charging
 	 -Estimated time decharging
 
+system:	 -Load
+	 -Kernel
+	 -Distribution
+	 -Uptime
+
+-graphics: -Nvidia Optimus state (requieres bumblebee)
+
 cpu:	 -Usage
+	 -Temperature
+	 -Freq
 
 ram:	 -Usage
 
