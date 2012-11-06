@@ -51,7 +51,7 @@ short_units no
 top_name_width 15
 
 # Lua Load  #
-lua_load ~/.clock_rings.lua
+lua_load ~/git/conky-lua/clock_rings.lua
 lua_draw_hook_pre clock_rings
 
 TEXT
@@ -63,18 +63,20 @@ ${font Caviar Dreams:size=12}${color FFFFFF}${alignr}${weather http://weather.no
 #${image ~/.conky/debian-logo.png -p 68,120 -s 60x60}
 ${color FFFFFF}${goto 42}${voffset 25}${battery_percent}${goto 80}${alignr}Time left:
 ${color 00ff00}${goto 4}${voffset 5}Battery${goto 80}${alignr}${battery_time}
-${goto 80}${stippled_hr}
+${goto 70}${stippled_hr}
 #
 ${goto 105}${color FFFFFF}${voffset 5}${alignr}Temp: ${color 00FF00}${hwmon temp 1} °C
 ${color FFFFFF}${goto 67}${voffset 8}${cpu cpu0}%${goto 105}${color FFFFFF}${alignr}Freq: ${color 00FF00}${freq}Mhz
 ${color 00ff00}${goto 43}${voffset 9}CPU${goto 105}${color FFFFFF}${alignr}Load: ${color 00FF00}${loadavg 1,2,3}
-${goto 105}${stippled_hr}
+${goto 95}${stippled_hr}
 #
 ${color FFFFFF}${goto 42}${voffset 22}${memperc}%${goto 117}${swapperc}%
 ${color 00ff00}${goto 18}${voffset 6}RAM${goto 85}Swap
+${goto 145}${stippled_hr}
 #
-${color FFFFFF}${goto 65}${voffset 30}${fs_used_perc /}%
-${color 00ff00}${goto 35}${voffset 5}Root
+${color FFFFFF}${goto 65}${voffset 22}${fs_used_perc /}%${goto 115}${color FFFFFF}${alignr}Read: ${color 00FF00}${diskio_read}
+${color 00ff00}${goto 35}${voffset 5}Root${goto 115}${color FFFFFF}${alignr}Write: ${color 00FF00}${diskio_write}
+${goto 95}${stippled_hr}
 #
 ${color FFFFFF}${goto 42}${voffset 30}${fs_used_perc /home}%
 ${color 00ff00}${goto 12}${voffset 5}Home
