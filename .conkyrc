@@ -1,0 +1,96 @@
+# Conky settings #
+
+temperature_unit celsius
+
+
+
+default_color FFFFFF
+
+text_buffer_size 1024
+minimum_size 300 768
+alignment middle_right
+background no
+border_width 0 
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+double_buffer yes 
+draw_borders no
+draw_graph_borders no 
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont Digitalix:size=5
+gap_x 5 
+gap_y 0 
+minimum_size 5 5
+maximum_width 300 
+net_avg_samples 2
+no_buffers yes 
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_class Conky
+own_window_type normal 
+own_window_transparent true 
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager 
+own_window_argb_visual yes
+own_window_argb_value 0
+#own_window_argb_value 255
+stippled_borders 0
+update_interval 1
+update_interval_on_battery 7
+uppercase no
+use_spacer none
+show_graph_scale no 
+show_graph_range no
+short_units no
+#max_user_text 24000
+top_name_width 15
+
+# Lua Load  #
+lua_load ~/.clock_rings.lua
+lua_draw_hook_pre clock_rings
+
+TEXT
+${voffset 8}${color 00ff00}${font Caviar Dreams:size=16}${time %A}${font}${voffset -8}${alignr 50}${color FFFFFF}${font Caviar Dreams:size=38}${time %e}${font}
+${color FFFFFF}${voffset -30}${color FFFFFF}${font Caviar Dreams:size=18}${time %b}${font}${voffset -3} ${color FFFFFF}${font Caviar Dreams:size=20}${time %Y}${font}${color 00ff00}${hr}
+${voffset 150}${font Caviar Dreams:size=10}${alignr}NVidia Optimus: ${color}${execi 60 cat /proc/acpi/bbswitch | awk '{print $2}'}
+${alignr}Temp${font}
+${font Caviar Dreams:size=12}${color FFFFFF}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30} °C${font}
+#${image ~/.conky/debian-logo.png -p 68,120 -s 60x60}
+${color FFFFFF}${goto 42}${voffset 25}${battery_percent}${goto 80}${alignr}Time left:
+${color 00ff00}${goto 4}${voffset 5}Battery${goto 80}${alignr}${battery_time}
+${goto 80}${stippled_hr}
+#
+${goto 105}${color FFFFFF}${voffset 5}${alignr}Temp: ${color 00FF00}${hwmon temp 1} °C
+${color FFFFFF}${goto 67}${voffset 8}${cpu cpu0}%${goto 105}${color FFFFFF}${alignr}Freq: ${color 00FF00}${freq}Mhz
+${color 00ff00}${goto 43}${voffset 9}CPU${goto 105}${color FFFFFF}${alignr}Load: ${color 00FF00}${loadavg 1,2,3}
+${goto 105}${stippled_hr}
+#
+${color FFFFFF}${goto 42}${voffset 22}${memperc}%${goto 117}${swapperc}%
+${color 00ff00}${goto 18}${voffset 6}RAM${goto 85}Swap
+#
+${color FFFFFF}${goto 65}${voffset 30}${fs_used_perc /}%
+${color 00ff00}${goto 35}${voffset 5}Root
+#
+${color FFFFFF}${goto 42}${voffset 30}${fs_used_perc /home}%
+${color 00ff00}${goto 12}${voffset 5}Home
+#
+${font digitalix:size=4}
+${color FFFFFF}${goto 60}${voffset 23}${downspeed wlan0}
+${color FFFFFF}${goto 58}${voffset 5}${upspeed wlan0}
+${font}${color 00ff00}${goto 39}${voffset 5}wlan0
+
+
+
+${color FFFFFF}${font Caviar Dreams:size=8}Uptime: ${uptime_short}
+${color FFFFFF}${font Caviar Dreams:size=8}Processes: ${processes}
+${color FFFFFF}${font Caviar Dreams:size=8}Running: ${running_processes}
+
+
+${color 00ff00}${font Caviar Dreams:size=8}${alignr}${nodename}
+${color 00ff00}${font Caviar Dreams:size=8}${alignr}${pre_exec cat /etc/issue.net}  $machine
+${color 00ff00}${font Caviar Dreams:size=8}${alignr}Kernel: ${kernel}
