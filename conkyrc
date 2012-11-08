@@ -79,7 +79,7 @@ ${color FFFFFF}${goto 65}${voffset 0}${fs_used_perc /}%${goto 115}${color FFFFFF
 ${color 00ff00}${goto 35}${voffset 5}Root${goto 115}${color FFFFFF}${alignr}Write: ${color 00FF00}${diskio_write /dev/sda}
 ${goto 95}${stippled_hr}
 #
-${color FFFFFF}${goto 42}${voffset 30}${fs_used_perc /home}%
+${color FFFFFF}${goto 42}${voffset 24}${fs_used_perc /home}%
 ${color 00ff00}${goto 12}${voffset 5}Home
 #
 ${font digitalix:size=4}
