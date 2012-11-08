@@ -59,7 +59,7 @@ ${voffset 8}${color 00ff00}${font Caviar Dreams:size=16}${time %A}${font}${voffs
 ${color FFFFFF}${voffset -30}${color FFFFFF}${font Caviar Dreams:size=18}${time %b}${font}${voffset -3} ${color FFFFFF}${font Caviar Dreams:size=20}${time %Y}${font}${color 00ff00}${hr}
 ${voffset 150}${font Caviar Dreams:size=10}${alignr}NVidia Optimus: ${color}${execi 60 cat /proc/acpi/bbswitch | awk '{print $2}'}
 ${alignr}Temp${font}
-${font Caviar Dreams:size=12}${color FFFFFF}${alignr}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ LQBK temperature temperature 30} °C${font}
+${font Caviar Dreams:size=12}${color FFFFFF}${alignr}${execi 900 lynx -source  http://www.wetter.com/wetter_aktuell/aktuelles_wetter/deutschland/kaiserslautern/DE0005230.html | grep °C | head -n1 | sed 's/ //g'}${font}
 #${image ~/.conky/debian-logo.png -p 68,120 -s 60x60}
 ${color FFFFFF}${goto 42}${voffset 25}${battery_percent}${goto 80}${alignr}Time left:
 ${color 00ff00}${goto 4}${voffset 5}Battery${goto 80}${alignr}${battery_time}
@@ -83,9 +83,10 @@ ${color FFFFFF}${goto 42}${voffset 24}${fs_used_perc /home}%
 ${color 00ff00}${goto 12}${voffset 5}Home
 #
 ${font digitalix:size=4}
-${color FFFFFF}${goto 60}${voffset 23}${downspeed wlan0}
-${color FFFFFF}${goto 58}${voffset 5}${upspeed wlan0}
-${font}${color 00ff00}${goto 39}${voffset 5}wlan0
+${color FFFFFF}${goto 60}${voffset 23}${downspeed wlan0}${color FFFFFF}${goto 120}${downspeed eth0}
+${color FFFFFF}${goto 58}${voffset 5}${upspeed wlan0}${color FFFFFF}${goto 120}${upspeed eth0}
+${font}${color 00ff00}${goto 39}${voffset 5}wlan0${font}${color 00ff00}${goto 95}eth0
+
 
 
 
