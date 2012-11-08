@@ -282,8 +282,8 @@ function draw_clock_hands(cr,xc,yc)
     
     -- Draw minute hand
     
-    xm=xc+clock_r*math.sin(mins_arc)
-    ym=yc-clock_r*math.cos(mins_arc)
+    xm=xc+clock_r*math.sin(mins_arc)+7
+    ym=yc-clock_r*math.cos(mins_arc)+7
     cairo_move_to(cr,xc,yc)
     cairo_line_to(cr,xm,ym)
     
