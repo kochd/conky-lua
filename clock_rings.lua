@@ -29,7 +29,7 @@ settings_table = {
         -- "bg_colour" is the colour of the base ring.
         bg_colour=0xffffff,
         -- "bg_alpha" is the alpha value of the base ring.
-        bg_alpha=0.5,
+        bg_alpha=0.1,
         -- "fg_colour" is the colour of the indicator part of the ring.
         fg_colour=0x00ff00,
         -- "fg_alpha" is the alpha value of the indicator part of the ring.
@@ -200,6 +200,20 @@ settings_table = {
         end_angle=190
     },
         {
+        name='upspeedf',
+        arg='wlan0',
+        max=300,
+        bg_colour=0xffffff,
+        bg_alpha=0.2,
+        fg_colour=0xff6600,
+        fg_alpha=0.45,
+        x=75, y=550,
+        radius=20,
+        thickness=2,
+        start_angle=-120,
+        end_angle=190
+    },
+        {
         name='downspeedf',
         arg='eth0',
         max=4000,
@@ -248,10 +262,10 @@ end
 
 function draw_ring(cr,t,pt)
     local w,h=conky_window.width,conky_window.height
-    
+
     local xc,yc,ring_r,ring_w,sa,ea=pt['x'],pt['y'],pt['radius'],pt['thickness'],pt['start_angle'],pt['end_angle']
     local bgc, bga, fgc, fga=pt['bg_colour'], pt['bg_alpha'], pt['fg_colour'], pt['fg_alpha']
-
+    
     local angle_0=sa*(2*math.pi/360)-math.pi/2
     local angle_f=ea*(2*math.pi/360)-math.pi/2
     local t_arc=t*(angle_f-angle_0)
